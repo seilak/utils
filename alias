@@ -1,0 +1,62 @@
+# Commands
+alias ll='ls -l'
+
+alias __git_ps1="git branch 2>/dev/null | grep '*' | sed 's/* \(.*\)/(\1)/'"
+alias gls='git ls-files'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdn='git diff --name-only'
+alias gdom='git diff origin/master'
+alias gdomn='git diff origin/master --name-only'
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit'
+alias gpo='git push origin'
+alias glog='git log --graph --decorate --pretty=oneline --abbrev-commit --all'
+#alias glog2='git log --graph --full-history --all --color --date=short --pretty=format:'%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%ad %aE %s''
+#alias gl='git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative'
+alias gfup='git fetch upstream master'
+alias gmup='git merge upstream/master'
+alias gup='git fetch upstream master; git merge upstream/master; git push origin master'
+
+alias tai='tai64nlocal'
+
+alias be='bundle exec'
+alias bers='bundle exec rake spec'
+alias ber='bundle exec rspec -cfd'
+alias bera='bundle exec rspec spec/ -cfd'
+
+curlproxy='curl --socks5 '\''localhost:9999'\'
+alias rams_dev='cd ~/git/data-processing/src/main/java/com/roku/ads/rams'
+alias rams_test='cd ~/git/data-processing/src/test/java/com/roku/ads/rams/'
+alias rams_it='cd ~/git/data-processing/src/test/java/com/roku/ads/test/integration/rams/'
+alias dp_home='cd ~/git/data-processing'
+alias rams-bin='bazel build src/main/java/com/roku/ads/rams:rams'
+alias rams-lint='./pants lint src/main/java/com/roku/ads/rams:rams'
+alias rams-lint-ut='./pants lint src/test/java/com/roku/ads/rams::'
+alias rams-lint-it='./pants lint src/test/java/com/roku/ads/test/integration/admedia/rams::'
+alias rams-it='./pants -k binary src/test/java/com/roku/ads/test/integration/admedia/rams:: --bundle-jvm-deployjar'
+alias rams-ut='./pants test.junit --test-junit-coverage --test-junit-output-mode=ALL --no-test-junit-timeouts --test-junit-html-report --test-junit-coverage-open --test-junit-open src/test/java/com/roku/ads/rams::'
+alias rams_svs_bin='./pants binary src/main/scala/com/roku/ads/services/rams::'
+alias rams_svs='java -Dlogback.configurationFile=com/roku/ads/services/rams/conf/logback-dev.xml -Dconfig.resource=com/roku/ads/services/rams/conf/application.conf -cp dist -cp /Users/skheang/rams/ -jar dist/rams-services.jar'
+alias rams-svs-it='./pants -k binary src/test/java/com/roku/ads/test/integration/admedia/adservices:: --bundle-jvm-deployjar'
+
+alias raps='cd ~/git/roku-ad-publisher-server'
+# alias rams_ut_all=`./pants -ldebug test.junit --test-junit-coverage --test-junit-output-mode=ALL --no-test-junit-timeouts --test-junit-html-report --test-junit-coverage-open --test-junit-open src/test/java/com/roku/ads/rams::`
+
+# alias rams_ut=`./pants -ldebug test.junit --test-junit-coverage --test-junit-output-mode=ALL --no-test-junit-timeouts --test-junit-html-report --test-junit-coverage-open --test-junit-open src/test/java/com/roku/ads/rams/$rams_test_config --test-junit-test=com.roku.ads.rams$rams_testname`
+
+alias sshdpdev='ssh data-processing-dev-emr-5-21.bdp.roku.com'
+alias greenlake='ssh greenlake.bdp.roku.com'
+alias gp='git push'
+alias dpdev_tunnel='ssh -ND 8157 data-processing-dev-emr-5-21.bdp.roku.com'
+alias ramsdev_tunnel='ssh -ND 8157 rams-airflow-dev-worker.bdp.roku.com'
+alias nrtdev_tunnel='ssh -ND 8157 -i ~/.ssh/emr_dev.pem hadoop@rams-data-processing-nrt-dev-emr-master.bdp.roku.com'
+alias nrt_tunnel='ssh -ND 8157 -i ~/.ssh/rams_emr_prod.pem hadoop@rams-data-processing-prod-emr-master.bdp.roku.com'
+alias sshgbdev='ssh -i ~/.ssh/emr_dev.pem hadoop@gobblin-dev-emr-master.bdp.roku.com'
+alias reset_dns='sudo killall -HUP mDNSResponder'
+
+alias sshnrt_prod='ssh -i ~/.ssh/rams_emr_prod.pem hadoop@rams-data-processing-nrt-prod-emr-master.bdp.roku.com'
+alias sshnrt_dev='ssh -i ~/.ssh/emr_dev.pem hadoop@rams-data-processing-nrt-dev-emr-master.bdp.roku.com'
+
+alias sshgobblin_dev='ssh -i ~/.ssh/emr_dev.pem hadoop@rams-gobblin-dev-emr.bdp.roku.com'
